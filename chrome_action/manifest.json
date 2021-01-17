@@ -1,0 +1,11 @@
+{
+	"name": "chrome action",
+	"description": "test for chrome.action",
+	"version": "1",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_title": "hello",
+		"default_popup": "index.html"
+	},
+	"permissions": ["accessibilityFeatures.read", "accessibilityFeatures.modify"]
+}
