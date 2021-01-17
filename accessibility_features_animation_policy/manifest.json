@@ -1,0 +1,10 @@
+{
+	"name": "Animation Stop",
+	"description": "To stop animation",
+	"version": "1.0",
+	"manifest_version": 2,
+	"permissions": ["accessibilityFeatures.read", "accessibilityFeatures.modify"],
+	"browser_action": {
+		"default_popup": "index.html"
+	}
+}
