@@ -1,7 +1,8 @@
 function set_value(value) {
-	// set the value to the animationPolicy
-	chrome.accessibilityFeatures.animationPolicy.set({ value: value }, function () { });
-	
+	// set the animationPolicy According to the value
+	chrome.accessibilityFeatures.animationPolicy.set({ value: value }, function () {});
+}
+
 // Set event listener on the Items
 document.querySelector('#ul-options').addEventListener('click', event => {
 	if (event.target.localName == 'input') {
@@ -9,7 +10,8 @@ document.querySelector('#ul-options').addEventListener('click', event => {
 	}
 });
 
+// fire every time when new value is set to animationPolicy
+chrome.accessibilityFeatures.animationPolicy.onChange.addListener(data => console.log(data));
 
-}
-
-chrome.accessibilityFeatures.animationPolicy.onChange.addListener((data) => console.log(data.value))
+// get the animationPolicy
+chrome.accessibilityFeatures.animationPolicy.get({}, policy => console.log(policy));
