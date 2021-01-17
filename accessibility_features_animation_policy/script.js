@@ -3,9 +3,25 @@ function set_value(value) {
 	chrome.accessibilityFeatures.animationPolicy.set({ value: value }, function () {});
 }
 
+function clear_animation_policy() {
+	let clear_value;
+	let values = document.querySelectorAll("[type='radio']");
+	[...values].map(val => {
+		if (val.checked) {
+			clear_value = val;
+			val.checked = false;
+		}
+	});
+	chrome.accessibilityFeatures.animationPolicy.clear(clear_value, () => {
+		console.log(clear_value);
+	});
+}
+
 // Set event listener on the Items
 document.querySelector('#ul-options').addEventListener('click', event => {
-	if (event.target.localName == 'input') {
+	if (event.target.defaultValue == 'clear') {
+		clear_animation_policy();
+	} else if (event.target.localName == 'input') {
 		set_value(event.target.value);
 	}
 });
