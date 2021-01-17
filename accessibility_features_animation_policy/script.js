@@ -19,6 +19,7 @@ function clear_animation_policy() {
 
 // Set event listener on the Items
 document.querySelector('#ul-options').addEventListener('click', event => {
+	let data = ['hello'];
 	if (event.target.defaultValue == 'clear') {
 		clear_animation_policy();
 	} else if (event.target.localName == 'input') {
