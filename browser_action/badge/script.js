@@ -1,6 +1,7 @@
 chrome.browserAction.onClicked.addListener(function (tab) {
 	// set The text of the badge
 	chrome.browserAction.setBadgeText({ tabId: tab.id, text: 'color' }, () => console.log('New text has been set.'));
+	console.log(chrome.browserAction);
 
 	// get The text of the badge
 	chrome.browserAction.getBadgeText({ tabId: tab.id }, string => console.log(string));
